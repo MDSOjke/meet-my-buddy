@@ -1,10 +1,12 @@
 <script>
+	import axios from 'axios'
+
 	import TailwindCss from './TailwindCss.svelte'
 </script>
 <TailwindCss/>
 
 <main>
-	Test 1
+	
 </main>
 
 <style>
