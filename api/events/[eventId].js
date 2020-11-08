@@ -1,7 +1,9 @@
+import { fetchEvent } from '../_helpers/_fauna.gql.service.js'
+
 module.exports = async (req, res) => {
-  res.json({
-    body: req.body,
-    query: req.query,
-    cookies: req.cookies,
-  })
+    const eventResponse = await fetchEvent(req.query.eventId);
+    if (eventResponse.result === "Error") {
+        console.log('Database error');
+    }
+    res.json(eventResponse);
 }

@@ -1,11 +1,9 @@
-import axios from 'axios';
-
-
+import { fetchAllEvents } from '../_helpers/_fauna.gql.service.js'
 
 module.exports = async (req, res) => {
-  res.json({
-    body: req.body,
-    query: req.query,
-    cookies: req.cookies,
-  })
+    const allEventsResponse = await fetchAllEvents();
+    if (allEventsResponse.result === "Error") {
+        console.log('Database error');
+    }
+    res.json(allEventsResponse);
 }
